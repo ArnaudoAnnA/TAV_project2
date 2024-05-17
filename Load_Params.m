@@ -1,11 +1,10 @@
-%clear all
-clc
 
 g = 9.81;
 
 peak_pw = 150e3; %Pmax [W]
 torque_max = 310;
 rpm_max = 16e3;
+rps_max = rpm_max/60;
 
 tau_g = 10.5; % gear ratio
 pt_del = 20e-3;
@@ -44,7 +43,6 @@ wheel_radius = wheel_prof+rim_size;
 
 inertia = 1;
 
-%%
 max_ang_vel = rpm_max / tau_g * (2*pi/60); % Velocità angolare in rad/s
 tyre_circ = 2 * pi * wheel_radius; % Circonferenza in metri
 max_lin_vel = max_ang_vel * tyre_circ; % Velocità lineare in m/s
@@ -53,10 +51,10 @@ max_lin_vel_kmh = max_lin_vel*3.6; % Velocità lineare in km/h
 % Visualizzazione dei risultati
 % disp(['Velocità lineare del veicolo: ' num2str(max_lin_vel_kmh) ' km/h']);
 
-v_base = peak_pw/torque_max;
+v_base = peak_pw/torque_max; % rad/s at the engine
 
-v = 0:1:(max_lin_vel*2);
-ris = arrayfun(@tractive_effort, v); % calls the function on 
+% v = 0:1:(max_lin_vel*2);
+% ris = arrayfun(@tractive_effort, v); % calls the function on 
                                      % each element of the array
 
 % v1 = 0:1:v_base+1;
@@ -74,6 +72,5 @@ ris = arrayfun(@tractive_effort, v); % calls the function on
 %xlim([0, max_lin_vel*2]); 
 %ylim([50, 600]);
 
-%%
-velstart = 0.01;
+velstart = 0.1;
 rho = 1.2;
