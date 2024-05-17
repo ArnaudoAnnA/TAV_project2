@@ -1,5 +1,5 @@
 %% TAV module
-close all; clc; clear; 
+close all; clc;
 warning off
 
 % Load tyre data (Pacejka model coefficients)
@@ -14,4 +14,6 @@ for ii = 1:size(pacn)
 end
 Pacn = Pace';     % array containing the coefficients of Pacejka tyre model
 
+
+Load_Params
 
