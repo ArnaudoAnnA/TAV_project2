@@ -7,8 +7,9 @@ rpm_max = 16e3;
 rps_max = rpm_max/60;
 
 tau_g = 10.5; % gear ratio
+tau_d = 0.5;
 pt_del = 20e-3;
-tau_torque = 50e-3;
+tau_torque_del = 50e-3;
 eta_t = .9; % efficiency of the electric motor and inverter 
             % in traction and generation
 mech_eff = .95;
@@ -36,10 +37,10 @@ Af = 2.36;
 
 wheel_width = 215e-3; % h del cilindro
 wheel_prof = 0.5*wheel_width; % dist of internal radius from external radius
-rim_size = 19*(2.54e-2);% internal radius
+rim_size = 19*(2.54e-2);% internal diameter 
 wheel_mass = 9.4; %average passenger car mass
 
-wheel_radius = wheel_prof+rim_size;
+wheel_radius = wheel_prof+rim_size/2;
 
 inertia = 1;
 
@@ -74,3 +75,8 @@ v_base = peak_pw/torque_max; % rad/s at the engine
 
 velstart = 0.1;
 rho = 1.2;
+
+Je = 10e-4;
+
+me = kerb_w+(Je*tau_g^2*tau_d^2)/wheel_radius^2+ ...
+    + 4*inertia/wheel_radius^2;
