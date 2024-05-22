@@ -80,3 +80,21 @@ Je = 10e-4;
 
 me = kerb_w+(Je*tau_g^2*tau_d^2)/wheel_radius^2+ ...
     + 4*inertia/wheel_radius^2;
+
+%% achievable range at different constant speeds
+
+vel1 = 50;
+vel2 = 100;
+vel3 = 150;
+
+p1 = 0.134e5;
+p2 = 0.5e5;
+p3 = 1.67e5;
+
+s1 = batt_cap/p1*vel1
+s2 = batt_cap/p2*vel2
+s3 = batt_cap/p3*vel3
+
+
+
+
