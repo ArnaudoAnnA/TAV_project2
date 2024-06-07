@@ -81,6 +81,11 @@ Je = 10e-4;
 me = kerb_w+(Je*tau_g^2*tau_d^2)/wheel_radius^2+ ...
     + 4*inertia/wheel_radius^2;
 
+%%rolling resistance cohefficients:
+
+mu_dry = 0.9; 
+mu_wet = 0.6; 
+
 %% achievable range at different constant speeds
 
 vel1 = 50;
